@@ -126,11 +126,9 @@ func (enc *X264ImageCustomEncoder) Init(videoFileName string) {
 		"-an", // no audio
 		"-y",
 		"-i", "-",
-		"-vcodec", "libx264",
-		"-preset", "veryfast",
-		"-g", "250",
-		"-crf", strconv.Itoa(enc.ConstantRateFactor),
-		videoFileName,
+		"-vf", 
+		"fps=1/5", 
+		"/tmp/img%000000003d.jpg",
 	)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
